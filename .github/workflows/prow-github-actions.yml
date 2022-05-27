@@ -1,8 +1,13 @@
-name: Prow Github Actions
-on: [push]
+name: "Prow github actions"
+on:
+  issue_comment:
+    types: [created]
+
 jobs:
-  Explore-GitHub-Actions:
+  execute:
     runs-on: ubuntu-latest
     steps:
-      - name: prow-github-actions
-        uses: jpmcb/prow-github-actions@v1"
+      - uses: jpmcb/prow-github-actions@v1
+        with:
+          prow-commands: '/assign /unassign /approve /retitle /area /kind /priority /remove /lgtm /close /reopen /lock /milestone /hold /cc /uncc'
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
