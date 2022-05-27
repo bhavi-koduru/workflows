@@ -1,0 +1,8 @@
+name: Prow Github Actions
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: prow-github-actions
+        uses: jpmcb/prow-github-actions@v1.1.3"
